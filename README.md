@@ -1,2 +1,1 @@
-# BookStoreKotlinApp
-LTTBDĐ
+# MyBook

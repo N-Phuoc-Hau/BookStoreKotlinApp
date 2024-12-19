@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Màu nền bên trong (nếu cần, có thể bỏ qua nếu chỉ muốn border) -->
+    <solid android:color="#FFFFFF" /> <!-- Màu nền trắng -->
+
+
+    <!-- Tùy chọn: Padding -->
+    <padding
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp" />
+</shape>
