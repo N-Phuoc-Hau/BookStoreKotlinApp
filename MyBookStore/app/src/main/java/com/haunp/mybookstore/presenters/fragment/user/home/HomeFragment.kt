@@ -21,7 +21,7 @@ import com.haunp.mybookstore.presenters.fragment.user.detail.BookDetailFragment
 
 class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
-    override var isTerminalBackKeyActive: Boolean = true
+    override var isTerminalBackKeyActive: Boolean = false
 
     // Danh sách hình ảnh cho banner
     private val imageList = listOf(

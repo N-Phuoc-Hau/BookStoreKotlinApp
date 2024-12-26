@@ -28,6 +28,7 @@ import java.text.NumberFormat
 import java.time.LocalDate
 import java.util.Locale
 import java.util.logging.Handler
+import kotlin.math.roundToInt
 
 
 class CartFragment : BaseFragment<CartFragmentBinding>() {
@@ -56,6 +57,7 @@ class CartFragment : BaseFragment<CartFragmentBinding>() {
                 adapter.submitList(books)
                 val numberFormat = NumberFormat.getNumberInstance(Locale("vi", "VN"))
                 val formattedPrice = numberFormat.format(books.sumOf { it.price })
+                totalAmount = books.sumOf { it.price }.roundToInt().toString()
                 tvPrice.text = "$formattedPrice đ"
                 tvPrice.setTextColor(ContextCompat.getColor(requireContext(), R.color.red_100))
                 tvPrice.textSize = 18f
@@ -82,7 +84,7 @@ class CartFragment : BaseFragment<CartFragmentBinding>() {
     override fun initAction() {
         binding {
             btnThanhToan.setOnClickListener {
-//                thanhToan()
+                thanhToan()
                 taoOrder()
 
             }
@@ -92,10 +94,10 @@ class CartFragment : BaseFragment<CartFragmentBinding>() {
 
     private fun thanhToan() {
         ZaloPaySDK.init(2553, Environment.SANDBOX)
-        val totalString = "10000"
+        Log.d("hau.np","totalString: $totalAmount")
         try {
             lifecycleScope.launch {
-                val data = paymentViewModel.createOrder(totalString)
+                val data = paymentViewModel.createOrder(totalAmount)
                 Log.d("hau.np","data: $data")
                 val code = data.getString("return_code")
                 Log.d("hau.np","return_code: $code")

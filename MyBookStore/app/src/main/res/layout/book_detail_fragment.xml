@@ -15,10 +15,11 @@
 
         <ImageView
             android:id="@+id/imgBook"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_width="240dp"
+            android:layout_height="361dp"
             android:padding="10dp"
-            android:src="@drawable/nlkt" />
+            android:src="@drawable/anhtest1"
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/nameBook"

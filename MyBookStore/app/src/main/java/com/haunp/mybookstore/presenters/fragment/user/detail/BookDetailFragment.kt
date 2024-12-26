@@ -39,7 +39,7 @@ class BookDetailFragment : BaseFragment<BookDetailFragmentBinding>() {
                 priceBook.text = "$formattedPrice đ"
                 authorBook.text = it.author
                 descriptionBook.text = it.description
-                Glide.with(binding.root.context)
+                Glide.with(requireActivity())
                     .load(it.imageUri)
                     .into(binding.imgBook)
                 Log.d("TAG", "initView: ${it.imageUri}")

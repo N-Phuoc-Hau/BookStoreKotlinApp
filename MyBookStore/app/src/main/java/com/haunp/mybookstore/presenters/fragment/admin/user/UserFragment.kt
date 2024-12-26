@@ -33,14 +33,12 @@ class UserFragment : BaseFragment<UserFragmentBinding>(){
                 val password = edtPassword.text.toString()
                 val phone = edtPhone.text.toString()
                 val address = edtAddress.text.toString()
-                val role = edtRole.text.toString()
                 val userEntity = UserEntity(
                     username = name,
                     email = email,
                     password = password,
                     phone = phone,
                     address = address,
-                    role = role.toInt()
                 )
                 viewModel.registerUser(userEntity)
                 clearText()

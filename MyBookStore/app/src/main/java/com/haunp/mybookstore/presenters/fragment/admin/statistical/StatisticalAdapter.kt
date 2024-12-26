@@ -3,6 +3,8 @@ package com.haunp.mybookstore.presenters.fragment.admin.statistical
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.haunp.mybookstore.databinding.ItemOrderBinding
 import com.haunp.mybookstore.databinding.ItemStatisticalBinding
 import com.haunp.mybookstore.domain.model.OrderEntity
 
@@ -14,11 +16,11 @@ class StatisticalAdapter() : RecyclerView.Adapter<StatisticalAdapter.Statistical
         orders.addAll(newOrders)
         notifyDataSetChanged()
     }
-    inner class StatisticalViewHolder(private val binding: ItemStatisticalBinding) :
+    inner class StatisticalViewHolder(private val binding: ItemOrderBinding) :
             RecyclerView.ViewHolder(binding.root) {
         fun bind(orderWithUser: Pair<OrderEntity, String>) {
             val (order, username) = orderWithUser
-            binding.tvNameUser.text = username
+            binding.tvName.text = username
             binding.tvPrice.text = order.totalAmount.toString()
             binding.tvDate.text = order.orderDate
             binding.root.setOnClickListener{
@@ -27,7 +29,7 @@ class StatisticalAdapter() : RecyclerView.Adapter<StatisticalAdapter.Statistical
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StatisticalViewHolder {
-        val binding = ItemStatisticalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemOrderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StatisticalViewHolder(binding)
     }
 
